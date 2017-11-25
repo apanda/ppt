@@ -8,7 +8,6 @@ from __future__ import unicode_literals
 from prompt_toolkit.key_binding.registry import ConditionalRegistry, MergedRegistry
 from prompt_toolkit.key_binding.bindings.basic import load_basic_bindings, load_abort_and_exit_bindings, load_basic_system_bindings, load_auto_suggestion_bindings, load_mouse_bindings
 from prompt_toolkit.key_binding.bindings.emacs import load_emacs_bindings, load_emacs_system_bindings, load_emacs_search_bindings, load_emacs_open_in_editor_bindings, load_extra_emacs_page_navigation_bindings
-from prompt_toolkit.key_binding.bindings.vi import load_vi_bindings, load_vi_system_bindings, load_vi_search_bindings, load_vi_open_in_editor_bindings, load_extra_vi_page_navigation_bindings
 from prompt_toolkit.filters import to_cli_filter
 
 __all__ = (
@@ -77,19 +76,19 @@ def load_key_bindings(
                             enable_extra_page_navigation),
 
         # Load Vi bindings.
-        load_vi_bindings(get_search_state=get_search_state),
+        # load_vi_bindings(get_search_state=get_search_state),
 
-        ConditionalRegistry(load_vi_open_in_editor_bindings(),
-                            enable_open_in_editor),
+        # ConditionalRegistry(load_vi_open_in_editor_bindings(),
+                            # enable_open_in_editor),
 
-        ConditionalRegistry(load_vi_search_bindings(get_search_state=get_search_state),
-                            enable_search),
+        # ConditionalRegistry(load_vi_search_bindings(get_search_state=get_search_state),
+                            # enable_search),
 
-        ConditionalRegistry(load_vi_system_bindings(),
-                            enable_system_bindings),
+        # ConditionalRegistry(load_vi_system_bindings(),
+                            # enable_system_bindings),
 
-        ConditionalRegistry(load_extra_vi_page_navigation_bindings(),
-                            enable_extra_page_navigation),
+        # ConditionalRegistry(load_extra_vi_page_navigation_bindings(),
+                            # enable_extra_page_navigation),
 
         # Suggestion bindings.
         # (This has to come at the end, because the Vi bindings also have an

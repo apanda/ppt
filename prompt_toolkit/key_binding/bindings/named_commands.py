@@ -130,6 +130,11 @@ def accept_line(event):
     " Accept the line regardless of where the cursor is. "
     b = event.current_buffer
     b.accept_action.validate_and_handle(event.cli, b)
+    
+@register('accept-multiline')
+def accept_multiline(event):
+    " Newline (in case of multiline input. "
+    event.current_buffer.newline(copy_margin=not event.cli.in_paste_mode)
 
 
 @register('previous-history')

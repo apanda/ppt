@@ -129,8 +129,8 @@ def load_emacs_bindings():
         lambda cli: cli.current_buffer.accept_action.is_returnable)
 
     # Meta + Newline: always accept input.
-    handle(Keys.Escape, Keys.ControlJ, filter=insert_mode & is_returnable)(
-        get_by_name('accept-line'))
+    handle(Keys.Escape, Keys.ControlJ, filter=insert_mode)(
+        get_by_name('accept-multiline'))
 
     def character_search(buff, char, count):
         if count < 0:
